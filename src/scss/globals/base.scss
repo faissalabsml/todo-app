@@ -1,0 +1,21 @@
+@use '../utilities' as *;
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+html {
+  box-sizing: border-box;
+  font-size: 62.5%;
+
+  @include breakpoint-down(small) {
+    font-size: 60%;
+  }
+}

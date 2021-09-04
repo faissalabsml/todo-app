@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- displays site properly based on user's device -->
+
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./src/assets/favicon-32x32.png"
+    />
+
+    <title>Frontend Mentor | Todo app</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="./src/scss/style.scss" />
+
+    <script defer src="./src/js/script.js"></script>
+  </head>
+  <body>
+    <div class="overlay"></div>
+    <div class="background"></div>
+
+    <div class="container">
+      <div class="heading">
+        <div class="title">
+          <h1>todo</h1>
+          <div class="toggle-theme-btn">
+            <img
+              class="toggle-theme-btn--sun"
+              src="./src/assets/icon-sun.svg"
+              alt=""
+            />
+            <img
+              class="toggle-theme-btn--moon"
+              src="./src/assets/icon-moon.svg"
+              alt=""
+            />
+          </div>
+        </div>
+
+        <div class="todo__input">
+          <div class="todo__item__icon--check"></div>
+          <input
+            type="text"
+            class="todo__input__field"
+            placeholder="Create a new todo..."
+          />
+        </div>
+      </div>
+
+      <div class="todo">
+        <div class="todo__list">
+          <ul class="todo__list__body">
+            <p class="todo__list__message">
+              Don't be like me, write something... :)
+            </p>
+
+            <!-- <div class="todo__item" draggable="true" data-id="0">
+              <input
+                class="todo__item__checkbox"
+                type="checkbox"
+                name="todo-item"
+                id="reading"
+              />
+              <div
+                class="todo__item__icon todo__item__icon--check"
+                data-role="check"
+              >
+                <svg xmlns="http://www.w3.org/2000/svg" width="11" height="9">
+                  <path
+                    fill="none"
+                    stroke="#FFF"
+                    stroke-width="2"
+                    d="M1 4.304L3.696 7l6-6"
+                  />
+                </svg>
+              </div>
+              <label class="todo__item__text" for="reading"
+                >Meditate for 2 fucking days</label
+              >
+              <div
+                class="todo__item__icon todo__item__icon--delete"
+                data-role="delete"
+              >
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18">
+                  <path
+                    fill-rule="evenodd"
+                    d="M16.97 0l.708.707L9.546 8.84l8.132 8.132-.707.707-8.132-8.132-8.132 8.132L0 16.97l8.132-8.132L0 .707.707 0 8.84 8.132 16.971 0z"
+                  />
+                </svg>
+              </div>
+            </div> -->
+          </ul>
+        </div>
+
+        <div class="todo__list__footer">
+          <div class="items-left">
+            <p>5 items left</p>
+          </div>
+
+          <div class="filter-items filter-items--desktop">
+            <input type="radio" name="filter" id="allTasks" checked />
+            <label for="allTasks" class="filter-option hover-light">All</label>
+
+            <input type="radio" name="filter" id="activeTasks" />
+            <label for="activeTasks" class="filter-option hover-light"
+              >Active</label
+            >
+
+            <input type="radio" name="filter" id="completedTasks" />
+            <label for="completedTasks" class="filter-option hover-light"
+              >Completed</label
+            >
+          </div>
+
+          <div class="clear-completed">
+            <p class="hover-light">Clear completed</p>
+          </div>
+        </div>
+
+        <div class="filter-items filter-items--mobile">
+          <input type="radio" name="filter" id="allTasks" checked />
+          <label for="allTasks" class="filter-option hover-light">All</label>
+
+          <input type="radio" name="filter" id="activeTasks" />
+          <label for="activeTasks" class="filter-option hover-light"
+            >Active</label
+          >
+
+          <input type="radio" name="filter" id="completedTasks" />
+          <label for="completedTasks" class="filter-option hover-light"
+            >Completed</label
+          >
+        </div>
+      </div>
+
+      <div class="note">
+        <p>Drag and drop to reorder list</p>
+      </div>
+
+      <div class="message">
+        <p>We don't do that here</p>
+      </div>
+    </div>
+  </body>
+</html>

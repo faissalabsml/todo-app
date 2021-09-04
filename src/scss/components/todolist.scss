@@ -1,0 +1,233 @@
+@use '../utilities' as *;
+
+.todo {
+  --padding: 1.5rem 2rem;
+  --right: 2rem;
+  --top: 2rem;
+  --gap: 2rem;
+
+  width: 100%;
+
+  &__input,
+  &__list,
+  &__list__footer,
+  .filter-items--mobile {
+    background-color: var(--todo-background-color);
+    border-radius: 5px;
+    box-shadow: 0px 20px 50px 2px hsla(var(--black-shadow), 0.2);
+  }
+
+  &__input,
+  &__item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  &__input {
+    margin: 3.5rem 0 2.5rem 0;
+    padding: 1.5rem 2rem;
+    border: 1px solid transparent;
+    transition: 0.2s;
+
+    input {
+      width: 100%;
+      background-color: transparent;
+      border: none;
+      outline: none;
+      color: var(--text-color-light);
+      font-family: inherit;
+      font-size: inherit;
+
+      &::placeholder {
+        color: var(--text-color-darker);
+      }
+    }
+
+    &:focus-within {
+      border: 1px solid var(--bright-blue);
+    }
+  }
+
+  &__item {
+    position: relative;
+    padding: var(--padding);
+    border-bottom: 1px solid var(--border-color);
+    color: var(--text-color-light);
+    cursor: move;
+    z-index: 99;
+
+    &__icon--check {
+      width: 2rem;
+      height: 2rem;
+      border-radius: 100%;
+      border: 1px solid var(--border-color);
+      @include flex-center;
+      cursor: pointer;
+      position: relative;
+      background-color: var(--todo-background-color);
+
+      svg {
+        opacity: 0;
+        transition: var(--transition);
+      }
+
+      &::before {
+        content: "";
+        width: 120%;
+        height: 120%;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        border-radius: inherit;
+        background: linear-gradient(135deg, var(--check--background));
+        z-index: -1;
+        opacity: 0;
+        transition: var(--transition);
+      }
+    }
+
+    &__checkbox {
+      display: none;
+    }
+
+    &__text {
+      cursor: pointer;
+
+      &:hover {
+        color: var(--text-color-darker);
+      }
+    }
+
+    &__checkbox:checked ~ &__text {
+      color: var(--text-color-darker);
+      text-decoration: line-through;
+    }
+
+    &__checkbox:checked ~ &__icon--check {
+      background: linear-gradient(135deg, var(--check--background));
+      border-color: transparent;
+      z-index: 1;
+
+      svg {
+        opacity: 1;
+      }
+
+      &::before {
+        opacity: 1;
+      }
+    }
+
+    &__icon--delete {
+      position: absolute;
+      right: var(--right);
+      top: var(--top);
+      opacity: 0;
+      transition: var(--transition);
+      cursor: pointer;
+
+      path {
+        fill: var(--text-color-dark);
+      }
+
+      &:hover path {
+        fill: var(--text-color-light);
+      }
+    }
+
+    &:hover {
+      .todo__item__icon--check {
+        border-color: transparent;
+      }
+
+      .todo__item__icon--check::before {
+        opacity: 1;
+      }
+
+      .todo__item__icon--delete {
+        opacity: 1;
+      }
+    }
+
+    &.dragging {
+      box-shadow: 0 0 12px 12px hsla(var(--black-shadow), 0.2);
+      border: 1px solid var(--bright-blue);
+    }
+  }
+
+  &__list {
+    height: 50vh;
+    overflow-y: scroll;
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
+
+    &__message {
+      color: var(--text-color-dark);
+      padding: var(--padding);
+      text-align: center;
+      margin-top: 1rem;
+    }
+
+    &__body.change-cursor {
+      .todo__item {
+        cursor: default;
+      }
+    }
+
+    &__footer {
+      display: flex;
+      justify-content: space-between;
+      padding: var(--padding);
+      color: var(--text-color-darker);
+      border-top-right-radius: 0;
+      border-top-left-radius: 0;
+    }
+  }
+
+  .filter-items {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+
+    input {
+      display: none;
+    }
+
+    label {
+      color: var(--text-color-darker);
+    }
+
+    input:checked + label {
+      color: var(--bright-blue);
+    }
+
+    &--desktop {
+      display: none;
+    }
+
+    &--mobile {
+      margin-top: var(--gap);
+      padding: var(--padding);
+    }
+
+    @include breakpoint(medium) {
+      &--desktop {
+        display: flex;
+      }
+
+      &--mobile {
+        display: none;
+      }
+    }
+  }
+
+  .hover-light:hover {
+    cursor: pointer;
+    color: var(--text-color-light);
+  }
+
+  & * {
+    transition: var(--transition);
+  }
+}

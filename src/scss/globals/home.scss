@@ -1,0 +1,113 @@
+@use '../utilities' as *;
+
+body {
+  background-color: var(--body-background-color);
+  color: #fff;
+  height: 100vh;
+  overflow: hidden;
+  transition: var(--transition);
+}
+
+.overlay {
+  width: 200vw;
+  height: 200vw;
+  background: var(--body-background-color);
+  border-radius: 50%;
+  position: absolute;
+  top: -50%;
+  right: -50%;
+  transform: scale(0);
+  transform-origin: top right;
+  transition: 0.8s;
+  z-index: -1;
+  pointer-events: none;
+
+  &.active {
+    transform: scale(1);
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+
+.background {
+  position: absolute;
+  z-index: -2;
+  width: 100%;
+  height: 35%;
+  background: var(--background-mobile);
+  background-size: cover;
+
+  @include breakpoint(medium) {
+    height: 40%;
+    background: var(--background-desktop);
+    background-size: cover;
+  }
+}
+
+.container {
+  width: 90%;
+  max-width: 60rem;
+  height: inherit;
+  margin: 0 auto;
+  display: grid;
+  place-items: center;
+  padding: 3rem 0;
+
+  @include breakpoint(xlarge) {
+    padding: 5rem 0;
+  }
+}
+
+.heading {
+  width: 100%;
+
+  .title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  @include breakpoint(xlarge) {
+    font-size: 2rem;
+  }
+
+  .toggle-theme-btn {
+    cursor: pointer;
+
+    .toggle-theme-btn--moon {
+      display: none;
+    }
+
+    &.active {
+      .toggle-theme-btn--sun {
+        display: none;
+      }
+
+      .toggle-theme-btn--moon {
+        display: inline;
+      }
+    }
+  }
+}
+
+.note {
+  color: var(--text-color-darker);
+  margin-top: 4rem;
+}
+
+.message {
+  background-color: var(--bright-blue);
+  padding: 1rem 2rem;
+  position: absolute;
+  bottom: 2rem;
+  right: 2rem;
+  border-radius: 5px;
+  transform: translateY(300%);
+  opacity: 0;
+  transition: all 0.5s ease-in;
+
+  &.active {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
