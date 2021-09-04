@@ -33,14 +33,14 @@ Users should be able to:
 
 ### Screenshot
 
-![](./screenshots/desktop.png)
-![](./screenshots/desktop-settings.png)
-![](./screenshots/mobile.png)
-![](./screenshots/mobile-settings.png)
+![](./screenshots/desktop-dark.png)
+![](./screenshots/desktop-light.png)
+![](./screenshots/mobile-dark.png)
+![](./screenshots/mobile-light.png)
 
 ### Links
 
-- Live Site URL: [Todo App](https:)
+- Live Site URL: [Todo App](https://todo-app-fem.netlify.app/)
 
 ## My process
 
