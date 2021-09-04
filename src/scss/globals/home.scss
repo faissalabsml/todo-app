@@ -4,7 +4,6 @@ body {
   background-color: var(--body-background-color);
   color: #fff;
   height: 100vh;
-  overflow: hidden;
   transition: var(--transition);
 }
 
@@ -92,7 +91,7 @@ body {
 
 .note {
   color: var(--text-color-darker);
-  margin-top: 4rem;
+  margin-top: 3.5rem;
 }
 
 .message {
