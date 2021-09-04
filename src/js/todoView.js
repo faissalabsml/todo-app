@@ -1,5 +1,5 @@
-import { dragAndDrop } from "./dragAndDrop.js";
 import todoList from "./todo.js";
+import { dragAndDrop } from "./dragAndDrop.js";
 
 const input = document.querySelector(".todo__input__field");
 const message = document.querySelector(".todo__list__message");

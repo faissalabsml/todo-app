@@ -3,7 +3,13 @@
 import todoList from "./todo.js";
 import { currentFilter } from "./todoView.js";
 
-export const dragAndDrop = function () {
+const isTouchDevice = () => {
+  return window.matchMedia("(pointer: coarse)").matches;
+};
+
+export const dragAndDrop = function (cursor = true) {
+  if (isTouchDevice()) return;
+
   const currentFilter = document.querySelector("input[name='filter']:checked");
   const todoItemsContainer = document.querySelector(".todo__list__body");
   let todoItems = [...todoList.container.children];
