@@ -5,6 +5,7 @@ body {
   color: #fff;
   height: 100vh;
   transition: var(--transition);
+  overflow: hidden;
 }
 
 .overlay {
@@ -91,7 +92,7 @@ body {
 
 .note {
   color: var(--text-color-darker);
-  margin-top: 3rem;
+  margin-top: 2rem;
 }
 
 .message {
